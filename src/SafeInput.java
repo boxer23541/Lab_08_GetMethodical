@@ -89,10 +89,10 @@ public class SafeInput
 
     /**
      * gets a ranged integer from user
-     * @param pipe
-     * @param prompt
-     * @param low
-     * @param high
+     * @param pipe - user input
+     * @param prompt - prompt for input
+     * @param low - low end of range
+     * @param high - high end of range
      * @return
      */
     public static int getRangedInt(Scanner pipe, String prompt, int low, int high)
@@ -108,6 +108,7 @@ public class SafeInput
             if (pipe.hasNextInt())
             {
                 retInt = pipe.nextInt();
+                pipe.nextLine();
                 if (retInt >= low && retInt <= high)
                 {
                     validInt = true;
@@ -127,4 +128,108 @@ public class SafeInput
 
         return retInt;
     }
+
+    /**
+     * Gets a ranged double from user
+     * @param pipe - user input
+     * @param prompt - prompt for input
+     * @param low - low end of range
+     * @param high - high end of range
+     * @return
+     */
+
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high)
+    {
+        double retDouble = 0;
+        boolean validDouble = false;
+        String trash = "";
+
+        do
+        {
+            System.out.print("\n" + prompt);
+
+            if (pipe.hasNextDouble())
+            {
+                retDouble = pipe.nextDouble();
+                pipe.nextLine();
+                if (retDouble >= low && retDouble <= high)
+                {
+                    validDouble = true;
+                }
+                else
+                {
+                    System.out.println("You entered \"" + retDouble + "\"");
+                    System.out.println("Enter a valid double [" + low + "-" + high + "]");
+                }
+            }
+            else
+            {
+                trash = pipe.nextLine();
+                System.out.println("Enter a valid double not \"" + trash + "\"");
+            }
+        }while(!validDouble);
+
+        return retDouble;
+    }
+
+    public static boolean getYNConfirm(Scanner pipe, String prompt)
+    {
+        boolean retYN = false;
+        boolean validInput = false;
+
+        do
+        {
+            System.out.println("\n" + prompt);
+            if(pipe.nextLine().equalsIgnoreCase("Y"))
+            {
+                retYN = true;
+                validInput = true;
+            }
+            else if(pipe.nextLine().equalsIgnoreCase("N"))
+            {
+                retYN = false;
+                validInput = true;
+            }
+            else
+            {
+                validInput = false;
+                System.out.println("Invalid Input. Enter [Y/N]");
+            }
+        }while(!validInput);
+            return retYN;
+    }
+
+    /**
+     *
+     * @param pipe
+     * @param prompt
+     * @param regEx
+     * @return
+     */
+
+    public static String getRegExString(Scanner pipe, String prompt, String regEx)
+    {
+        boolean done = false;
+        String trash = "";
+        String retVal = "";
+
+        do
+        {
+            System.out.print(prompt + " " + regEx + ": ");
+            retVal = pipe.nextLine();
+
+            if (retVal.matches(regEx))
+            {
+                done = true;
+            }
+            else
+            {
+                trash = pipe.nextLine();
+                System.out.println("Enter a matching pattern not: " + trash);
+            }
+        }while(!done);
+
+        return retVal;
+    }
+
 }
