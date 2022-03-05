@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DevTest
+public class Reggie
 {
     public static void main(String[] args)
     {
@@ -13,4 +13,3 @@ public class DevTest
         System.out.println("Your SSN is " + SSN);
     }
 }
-

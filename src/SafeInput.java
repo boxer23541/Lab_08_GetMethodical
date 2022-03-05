@@ -212,7 +212,7 @@ public class SafeInput
     {
         boolean done = false;
         String trash = "";
-        String retVal = "";
+        String retVal;
 
         do
         {
