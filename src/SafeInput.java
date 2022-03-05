@@ -211,7 +211,7 @@ public class SafeInput
     public static String getRegExString(Scanner pipe, String prompt, String regEx)
     {
         boolean done = false;
-        String trash = "";
+        String trash;
         String retVal;
 
         do
@@ -225,8 +225,7 @@ public class SafeInput
             }
             else
             {
-                trash = pipe.nextLine();
-                System.out.println("Enter a matching pattern not: " + trash);
+                System.out.println("Enter a matching pattern not: " + retVal);
             }
         }while(!done);
 
