@@ -176,23 +176,24 @@ public class SafeInput
     {
         boolean retYN = false;
         boolean validInput = false;
+        String response;
 
         do
         {
-            System.out.println("\n" + prompt);
-            if(pipe.nextLine().equalsIgnoreCase("Y"))
+            System.out.print("\n" + prompt);
+            response = pipe.nextLine();
+            if(response.equalsIgnoreCase("Y"))
             {
                 retYN = true;
                 validInput = true;
             }
-            else if(pipe.nextLine().equalsIgnoreCase("N"))
+            else if(response.equalsIgnoreCase("N"))
             {
                 retYN = false;
                 validInput = true;
             }
             else
             {
-                validInput = false;
                 System.out.println("Invalid Input. Enter [Y/N]");
             }
         }while(!validInput);

@@ -6,10 +6,10 @@ public class DevTest
     {
         Scanner in = new Scanner(System.in);
 
-        int value = 0;
+        boolean YesNo = false;
+        YesNo = SafeInput.getYNConfirm(in, "Enter Yes or No [Y/N]: ");
 
-        value = SafeInput.getRangedInt(in, "Enter a number [5-12]: ", 5, 12);
-        System.out.println("Your number is " + value);
+        System.out.println(YesNo);
     }
 }
 
