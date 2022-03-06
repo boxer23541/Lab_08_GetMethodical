@@ -23,9 +23,9 @@ public class SafeInput
 
     /**
      * Gets an integer from user
-     * @param pipe
-     * @param prompt
-     * @return
+     * @param pipe - gets input
+     * @param prompt - prompts for integer
+     * @return - returns integer
      */
     public static int getInt(Scanner pipe, String prompt)
     {
@@ -56,9 +56,9 @@ public class SafeInput
 
     /**
      * gets a double from user
-     * @param pipe
-     * @param prompt
-     * @return
+     * @param pipe - gets input
+     * @param prompt - prompts for double
+     * @return - returns double
      */
     public static double getDouble(Scanner pipe, String prompt)
     {
@@ -135,7 +135,7 @@ public class SafeInput
      * @param prompt - prompt for input
      * @param low - low end of range
      * @param high - high end of range
-     * @return
+     * @return - returns ranged double
      */
 
     public static double getRangedDouble(Scanner pipe, String prompt, double low, double high)
@@ -230,6 +230,36 @@ public class SafeInput
         }while(!done);
 
         return retVal;
+    }
+
+    public static void prettyHeader(String msg)
+    {
+        int whiteSpace = (53 - msg.length()) / 2;
+
+        for (int x = 0; x <= 59; x++)
+        {
+            System.out.print("*");
+        }
+        System.out.print("\n***");
+
+        for (int x = 0; x <= whiteSpace; x++)
+        {
+            System.out.print(" ");
+        }
+
+        System.out.print(msg);
+
+        for (int x = 0; x <= whiteSpace; x++)
+        {
+            System.out.print(" ");
+        }
+
+        System.out.println("***");
+
+        for (int x = 0; x <= 59; x++)
+        {
+            System.out.print("*");
+        }
     }
 
 }
